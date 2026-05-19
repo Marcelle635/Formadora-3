@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <div *ngIf="carregando" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando produtos...</p>
+  </div>
+
+  <ion-card *ngIf="!carregando && produtoAtual" class="product-card">
+    
+    <div class="image-container">
+      <img [src]="produtoAtual.image" alt="{{ produtoAtual.title }}" />
+    </div>
+
+    <ion-card-header>
+      <ion-card-title>{{ produtoAtual.title }}</ion-card-title>
+      <ion-card-subtitle>{{ produtoAtual.category | uppercase }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="description">{{ produtoAtual.description }}</p>
+      
+      <div class="card-footer-info">
+        
+        <ion-button 
+          (click)="produtoAnterior()" 
+          [disabled]="indexAtual === 0" 
+          fill="clear" 
+          class="arrow-btn">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+
+        <span class="product-id">id: {{ produtoAtual.id }}</span>
+
+        <ion-button 
+          (click)="proximoProduto()" 
+          [disabled]="indexAtual === listaProdutos.length - 1" 
+          fill="clear" 
+          class="arrow-btn">
+          <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

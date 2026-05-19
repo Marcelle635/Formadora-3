@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Lista Geral</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="top-buttons-container">
+    
+    <ion-button 
+      *ngIf="!exibirLista" 
+      (click)="mostrarTodos()" 
+      shape="round" 
+      class="control-btn blue-btn">
+      1
+    </ion-button>
+
+    <ion-button 
+      *ngIf="exibirLista" 
+      (click)="suprimirLista()" 
+      shape="round" 
+      color="danger" 
+      class="control-btn">
+      Suprimir Lista
+    </ion-button>
+
+  </div>
+
+  <div *ngIf="carregando" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando catálogo...</p>
+  </div>
+
+  <div *ngIf="exibirLista && !carregando" class="products-list">
+    
+    <ion-card *ngFor="let produto of listaProdutos" class="product-card-list">
+      
+      <div class="image-container">
+        <img [src]="produto.image" alt="{{ produto.title }}" />
+      </div>
+
+      <ion-card-header>
+        <ion-card-title>{{ produto.title }}</ion-card-title>
+        <ion-card-subtitle>{{ produto.category | uppercase }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p class="description">{{ produto.description }}</p>
+        
+        <div class="card-footer-info">
+          <div class="placeholder-space"></div>
+          <span class="product-id">id: {{ produto.id }}</span>
+          <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+        </div>
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+</ion-content>
