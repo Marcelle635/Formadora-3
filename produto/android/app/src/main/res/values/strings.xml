@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">produto</string>
+    <string name="title_activity_main">produto</string>
+    <string name="package_name">com.marcelle.produto</string>
+    <string name="custom_url_scheme">com.marcelle.produto</string>
+</resources>
