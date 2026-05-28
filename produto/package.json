@@ -2,11 +2,11 @@
   "name": "ionic-app-base",
   "version": "0.0.0",
   "author": "Ionic Framework",
-  "homepage": "https://Marcelle635.github.io/Formadora-3/produto",
+  "homepage": "https://Marcelle635.github.io/Formadora-3",
   "scripts": {
   "ng": "ng",
   "start": "ng serve",
-  "build": "ng build --configuration=production --base-href /Formadora-3/produto/",
+  "build": "ng build --configuration=production --base-href /Formadora-3/",
   "watch": "ng build --watch --configuration development",
   "test": "ng test",
   "deploy": "gh-pages -d www"
